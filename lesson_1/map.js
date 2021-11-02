@@ -16,16 +16,25 @@ Basic algorithm:
 -return array
 */
 
-function map(array, callback, thisArg) {
-  let result = [];
+// function map(array, callback, thisArg) {
+//   let result = [];
 
-  for (let index = 0; index < array.length; index += 1) {
-    result.push(callback.call(thisArg, array[index], index, array));
+//   for (let index = 0; index < array.length; index += 1) {
+//     result.push(callback.call(thisArg, array[index], index, array));
+//   }
+
+//   return result;
+// }
+
+function map(array, callback, thisArg) {
+  let mapped = [];
+
+  for (let index = 0; index < array.length; index++) {
+    mapped.push(callback.call(thisArg, array[index], index, array));
   }
 
-  return result;
+  return mapped;
 }
-
 
 let numbers = [1, 2, 3, 4, 5];
 console.log(map(numbers, number => number * 3));  // => [ 3, 6, 9, 12, 15 ]

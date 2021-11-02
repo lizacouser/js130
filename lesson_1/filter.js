@@ -23,16 +23,14 @@ Algorithm:
 
 function filter(array, callback, thisArg) {
   let result = [];
-
-  for (let index = 0; index < array.length; index += 1) {
-    if (callback.call(thisArg, array[index], index, array)) { // returns boolean
+  for (let index = 0; index < array.length; index ++) {
+    if (callback.call(thisArg, array[index], index, array)) {
       result.push(array[index]);
     }
   }
 
   return result;
 }
-
 
 let numbers = [1, 2, 3, 4, 5];
 console.log(filter(numbers, number => number > 3)); // => [ 4, 5 ]
@@ -42,3 +40,16 @@ console.log(filter(numbers, () => true));           // => [ 1, 2, 3, 4, 5 ]
 let values = [1, "abc", null, true, undefined, "xyz"];
 console.log(filter(values, value => typeof value === "string"));
 // => [ 'abc', 'xyz' ]
+
+
+// function filter(array, callback, thisArg) {
+//   let result = [];
+
+//   for (let index = 0; index < array.length; index += 1) {
+//     if (callback.call(thisArg, array[index], index, array)) { // returns boolean
+//       result.push(array[index]);
+//     }
+//   }
+
+//   return result;
+// }

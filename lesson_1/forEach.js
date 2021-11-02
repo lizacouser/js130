@@ -1,5 +1,5 @@
 function forEach(array, callback, thisArg) {
-  for (let index = 0; index <  array.length; index += 1) {
+  for (let index = 0; index < array.length; index ++) {
     callback.call(thisArg, array[index], index, array);
   }
 }
@@ -12,3 +12,10 @@ forEach([1,2,3], (element, index, array) => {
 forEach(["a", "b", "c"], function(value, index, arr) {
   console.log(`After ${value} comes ${arr[index + 1]}`);
 });
+
+
+// function forEach(array, callback, thisArg) {
+//   for (let index = 0; index <  array.length; index += 1) {
+//     callback.call(thisArg, array[index], index, array);
+//   }
+// }

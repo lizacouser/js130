@@ -15,10 +15,12 @@ Basic algorithm:
 */
 
 function map(array, callback, thisArg) {
-  return array.reduce((transformedArray, val) => {
-    transformedArray.push(callback.call(thisArg, val));
-    return transformedArray;
-  }, []);
+  let mapped = array.reduce((mappedArray, elem) => {
+    mappedArray.push(callback.call(thisArg, elem));
+    return mappedArray;
+  }, [])
+
+  return mapped;
 }
 
 
@@ -31,3 +33,10 @@ console.log(map(numbers, () => false));
 let values = [1, "abc", null, true, undefined, "xyz"];
 console.log(map(values, value => String(value)));
 // => [ '1', 'abc', 'null', 'true', 'undefined', 'xyz' ]
+
+// function map(array, callback, thisArg) {
+//   return array.reduce((transformedArray, val) => {
+//     transformedArray.push(callback.call(thisArg, val));
+//     return transformedArray;
+//   }, []);
+// }

@@ -20,12 +20,13 @@ Algorithm:
 */
 
 function filter(array, callback, thisArg) {
-  return array.reduce((filteredArray, val) => {
+  // use reduce to iterate through array, with [] compiling the results.
+  return array.reduce((acc, val) => {
     if (callback.call(thisArg, val)) {
-      filteredArray.push(val);
+      acc.push(val);
     }
-    return filteredArray;
-  }, []);
+    return acc;
+  }, [])
 }
 
 
@@ -37,3 +38,14 @@ console.log(filter(numbers, () => true));           // => [ 1, 2, 3, 4, 5 ]
 let values = [1, "abc", null, true, undefined, "xyz"];
 console.log(filter(values, value => typeof value === "string"));
 // => [ 'abc', 'xyz' ]
+
+// function filter(array, callback, thisArg) {
+//   return array.reduce((filteredArray, val) => {
+//     if (callback.call(thisArg, val)) {
+//       filteredArray.push(val);
+//     }
+//     return filteredArray;
+//   }, []);
+// }
+
+

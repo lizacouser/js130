@@ -19,17 +19,15 @@ algorithm:
 -return accum
 */
 
-function reduce(array, callback, initialVal, thisArg) {
-  let accum = initialVal;
-
-  for (let index = 0; index < array.length; index += 1) {
+function reduce(array, callback, accumStart, thisArg) {
+  let accum = accumStart;
+  for (let index = 0; index < array.length; index ++) {
     if (accum) {
-      accum = callback.call(thisArg, accum, array[index], index, array);
+      accum = callback.call(thisArg, accum, array[index], index, array)
     } else {
-      accum = array[index];
+      accum = array[index]
     }
   }
-
   return accum;
 }
 
@@ -47,3 +45,17 @@ console.log(reduce(stooges, (reversedStooges, stooge) => {
   return reversedStooges;
 }, []));
 // => ["Curly", "Larry", "Mo"]
+
+// function reduce(array, callback, initialVal, thisArg) {
+//   let accum = initialVal;
+
+//   for (let index = 0; index < array.length; index += 1) {
+//     if (accum) {
+//       accum = callback.call(thisArg, accum, array[index], index, array);
+//     } else {
+//       accum = array[index];
+//     }
+//   }
+
+//   return accum;
+// }
